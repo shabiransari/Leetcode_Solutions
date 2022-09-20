@@ -20,22 +20,18 @@ public double findMedianSortedArrays(int[] nums1, int[] nums2)
                 k++;
             }
         }
-        if(i>=s1)
-        {
-            for(int t=j;t<s2;t++)
-            {
-                temp[k]=nums2[t];
+        while(j<s2){
+                temp[k]=nums2[j];
+            j++;
+                k++;
+        }
+        
+        while(i<s1){
+                temp[k]=nums1[i];
+            i++;
                 k++;
             }
-        }
-        if(j>=s2)
-        {
-            for(int t=i;t<s1;t++)
-            {
-                temp[k]=nums1[t];
-                k++;
-            }
-        }
+        
         //just for checking printing temp array
         /*for(int t=0;t<k;t++)
             System.out.print(temp[t]+" ");*/
