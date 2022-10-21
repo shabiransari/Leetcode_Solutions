@@ -113,7 +113,20 @@ class Tree
 {
 	public static int getSize(Node root)
 	{
-	    if(root==null)return 0;
-	    return 1+getSize(root.left)+getSize(root.right);
+	    int count=0;
+	    Queue<Node> q=new LinkedList<>();
+	    q.offer(root);
+	    while(!q.isEmpty()){
+	        Node temp=q.poll();
+	        if(temp.left!=null){
+	            count++;
+	            q.offer(temp.left);
+	        }
+	        if(temp.right!=null){
+	            count++;
+	            q.offer(temp.right);
+	        }
+	    }
+	    return 1+count;
     }
 }
