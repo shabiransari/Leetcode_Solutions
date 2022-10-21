@@ -121,8 +121,21 @@ class Tree
 {
     int countLeaves(Node node) 
     {
-        if(node==null)return 0;
-        if(node.left==null && node.right==null)return 1;
-        return countLeaves(node.left)+countLeaves(node.right);
+        int count=0;
+        Queue<Node> q=new LinkedList<>();
+        q.offer(node);
+        while(!q.isEmpty()){
+            Node temp=q.poll();
+            if(temp.left==null&&temp.right==null){
+                count++;
+            }
+            if(temp.left!=null){
+                q.offer(temp.left);
+            }
+            if(temp.right!=null){
+                q.offer(temp.right);
+            }
+        }
+        return count;
     }
 }
